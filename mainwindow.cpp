@@ -173,6 +173,28 @@ void MainWindow::SetRightGroupBox()
 void MainWindow::SetWrodListGroupBox()
 {
     WrodListGroupBox->setGeometry(0,0,MainUiGroupBox->width(),MainUiGroupBox->height());
+    QPushButton *gotostudy=new QPushButton(WrodListGroupBox);
+    QPushButton *gototest=new QPushButton(WrodListGroupBox);
+
+    gotostudy->setText("进入学习");
+    gototest->setText("马上测试");
+
+    gotostudy->setGeometry(590,540,80,30);
+    gototest->setGeometry(680,540,80,30);
+
+    WrodListGroupBox->setStyleSheet("QPushButton{background:#42A1E1}");
+
+    QGroupBox *tipBox= new QGroupBox(WrodListGroupBox);
+    tipBox->setGeometry(10,45,WrodListGroupBox->width()-20,40);
+    tipBox->setStyleSheet("background:#F1F1F1;");
+    QLabel *tips = new QLabel(tipBox);
+    tips->setText("消息播放器：这是一条测试消息");
+    tips->move(15,15);
+
+    QLabel *numberTips = new QLabel(tipBox);
+    numberTips->setText("已选择 100 词/ 共100词");
+    numberTips->move(550,15);
+
     QListWidget *WordList=new QListWidget(WrodListGroupBox);
     WordList->setGeometry(15,100,WrodListGroupBox->width()-30,WrodListGroupBox->height()-200);
     WordList->setStyleSheet("QListWidget{border:1px groove gray;}");
