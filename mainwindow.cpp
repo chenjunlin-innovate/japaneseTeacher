@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     WrodListGroupBox=new QGroupBox(MainUiGroupBox);            SetWrodListGroupBox();
 
-
+    //WrodListGroupBox->hide();
 
 
 }
@@ -70,23 +70,23 @@ void MainWindow::SetFunctionSelectionGroupBox()
     ChoiceGroupBox->setGeometry((FunctionSelectionGroupBox->width()-350)/2,FunctionSelectionGroupBox->height()*0.45,350,30);
     ChoiceGroupBox->setStyleSheet("border:0px groove gray;");
 
-    MainLabel->setText(QString::fromLocal8Bit("第 1 课"));
+    MainLabel->setText( "第 1 课");
     MainLabel->setStyleSheet("font-size:50px;font-family:Microsoft YaHei;color:#555555;border:0px groove gray;");
     MainLabel->move(FunctionSelectionGroupBox->width()/2-80,FunctionSelectionGroupBox->height()*0.15);
 
-    SpeedLabel->setText(QString::fromLocal8Bit("完成 0 个词/共 10 个词"));
+    SpeedLabel->setText( "完成 0 个词/共 10 个词");
     SpeedLabel->setStyleSheet("font-size:20px;font-family:Microsoft YaHei;color:#000000;border:0px groove gray;");
     SpeedLabel->move(FunctionSelectionGroupBox->width()/2-110,FunctionSelectionGroupBox->height()*0.3);
 
-    TextButton->setText(QString::fromLocal8Bit("课文"));
-    WordButton->setText(QString::fromLocal8Bit("单词"));
-    GrammarButton->setText(QString::fromLocal8Bit("语法"));
+    TextButton->setText( "课文");
+    WordButton->setText( "单词");
+    GrammarButton->setText( "语法");
 
     TextButton->move(ChoiceGroupBox->width()-65,3);
     WordButton->move(5,3);
     GrammarButton->move(ChoiceGroupBox->width()-200,3);
 
-    BegainButton->setText(QString::fromLocal8Bit("开始学习"));
+    BegainButton->setText( "开始学习");
     BegainButton->setGeometry((FunctionSelectionGroupBox->width()-260)/2,FunctionSelectionGroupBox->height()*0.55,260,80);
     BegainButton->setStyleSheet("QPushButton{font-size:35px;font-family:Microsoft YaHei;color:#FFFFFF;border:2px groove gray;border-radius:10px;padding:2px 4px;font-weight:bold;}"
                                 "QPushButton{background:#98dd34;}"
@@ -113,7 +113,7 @@ void MainWindow::SetFooterMessage()
     QLabel *FootLabel=new QLabel(FootGroupBox);
     FootLabel->setStyleSheet("color:#ffffff;border:0px groove gray;");
     FootLabel->move(20,17);
-    FootLabel->setText(QString::fromLocal8Bit("V 1.00 版权所有 水木日语教育科技有限公司"));
+    FootLabel->setText("V 1.00 版权所有 水木日语教育科技有限公司");
 }
 
 void MainWindow::SetSettingBar()
@@ -126,7 +126,7 @@ void MainWindow::SetSettingBar()
 
     SetButtonGroupBox->setGeometry(TopGroupBox->width()-260,7,250,55);
 
-    Button4->setText(QString::fromLocal8Bit("×"));
+    Button4->setText( "×");
 
     Button1->setGeometry(0,0,55,55);
     Button2->setGeometry(65,0,55,55);
@@ -162,7 +162,7 @@ void MainWindow::SetRightGroupBox()
     FootTopBox->setGeometry(0,RightTopBox->height(),RightGroupBox->width(),RightGroupBox->height()-RightTopBox->height());
 
     QPushButton *ProblemButton=new QPushButton(RightTopBox);
-    ProblemButton->setText(QString::fromLocal8Bit("我的错题本"));
+    ProblemButton->setText( "我的错题本");
     ProblemButton->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
                                  "QPushButton{background:#62B1E1;}"
                                  "QPushButton:hover{background:#42A1E1;}"
@@ -237,10 +237,10 @@ void MainWindow::SetWrodListGroupBox()
         QCheckBox *checkBox =new QCheckBox(itemwidget);
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
-        QString xx(QString::fromLocal8Bit("日本語"));
+        QString xx( "日本語");
         xx+=QString::number(i);
         japanese->setText(xx);
-        chinese->setText(QString::fromLocal8Bit("【名词】中文翻译"));
+        chinese->setText( "【名词】中文翻译");
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);
         checkBox->setGeometry(35,9,20,20);
