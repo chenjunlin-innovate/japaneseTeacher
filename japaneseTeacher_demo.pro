@@ -25,10 +25,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    management.cpp
+    management.cpp \
+    functionselectionui.cpp \
+    wordlistui.cpp \
+    wordstudyui.cpp \
+    programui.cpp
 
 HEADERS  += mainwindow.h \
-    management.h
+    management.h \
+    functionselectionui.h \
+    wordlistui.h \
+    wordstudyui.h \
+    programui.h
 
 RESOURCES += \
     icon.qrc \

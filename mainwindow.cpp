@@ -1,4 +1,4 @@
-﻿#include "mainwindow.h"
+﻿#include"mainwindow.h"
 #include<QMouseEvent>
 #include<QGroupBox>
 #include<QButtonGroup>
@@ -15,12 +15,14 @@
 #include<QCheckBox>
 #include<QScrollBar>
 #include<QSplashScreen>
+#include <QApplication>
+#include<QObject>
 
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    this->SetWindowsSize(1120,740);
+    this->SetWindowsSize(1050,700);
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setStyleSheet("QWidget{background-color:#4da6de;border:2px groove gray;border-radius:10px;padding:2px 4px;}");
 
@@ -31,14 +33,15 @@ MainWindow::MainWindow(QWidget *parent)
     MainUiGroupBox=new QGroupBox(this);                        SetMainGroupBox();
     RightGroupBox=new QGroupBox(this);                         SetRightGroupBox();
 
-    FunctionSelectionGroupBox=new QGroupBox(MainUiGroupBox);   SetFunctionSelectionGroupBox();
-    FunctionSelectionGroupBox->hide();//开发测试
+    FunctionSelection =new FunctionSelectionUI(MainUiGroupBox);  //主页选择页面
+    WordList =new WordListUI(MainUiGroupBox);                    //单词列表
+    WordStudy = new WordStudyUI(MainUiGroupBox);                 //单词学习
 
-    WrodListGroupBox=new QGroupBox(MainUiGroupBox);            SetWrodListGroupBox();
+    //WordStudyGroupBox=new QGroupBox(MainUiGroupBox);           SetWordStudyGroupBox();
+    //WordStudyGroupBox->hide();
 
-    //WrodListGroupBox->hide();
-
-
+    AllWindowsHide();   //隐藏所有窗口
+    SetMainConnect();   //各类窗口切换Connect
 }
 
 MainWindow::~MainWindow()
@@ -53,47 +56,6 @@ void MainWindow::SetWindowsSize(int x, int y)
     this->setMinimumSize(x,y);
 }
 
-void MainWindow::SetFunctionSelectionGroupBox()
-{
-    FunctionSelectionGroupBox->setGeometry(0,0,MainUiGroupBox->width(),MainUiGroupBox->height());
-    FunctionSelectionGroupBox->setStyleSheet("background-color:#ffffff;border:0px groove gray;border-radius:0px;padding:0px 0px;");
-
-    QGroupBox *ChoiceGroupBox=new QGroupBox(FunctionSelectionGroupBox);
-    QPushButton *BegainButton=new QPushButton(FunctionSelectionGroupBox);
-    QLabel *MainLabel=new QLabel(FunctionSelectionGroupBox);
-    QLabel *SpeedLabel=new QLabel(FunctionSelectionGroupBox);
-
-    QRadioButton *WordButton=new QRadioButton(ChoiceGroupBox);
-    QRadioButton *GrammarButton=new QRadioButton(ChoiceGroupBox);
-    QRadioButton *TextButton=new QRadioButton(ChoiceGroupBox);
-
-    ChoiceGroupBox->setGeometry((FunctionSelectionGroupBox->width()-350)/2,FunctionSelectionGroupBox->height()*0.45,350,30);
-    ChoiceGroupBox->setStyleSheet("border:0px groove gray;");
-
-    MainLabel->setText( "第 1 课");
-    MainLabel->setStyleSheet("font-size:50px;font-family:Microsoft YaHei;color:#555555;border:0px groove gray;");
-    MainLabel->move(FunctionSelectionGroupBox->width()/2-80,FunctionSelectionGroupBox->height()*0.15);
-
-    SpeedLabel->setText( "完成 0 个词/共 10 个词");
-    SpeedLabel->setStyleSheet("font-size:20px;font-family:Microsoft YaHei;color:#000000;border:0px groove gray;");
-    SpeedLabel->move(FunctionSelectionGroupBox->width()/2-110,FunctionSelectionGroupBox->height()*0.3);
-
-    TextButton->setText( "课文");
-    WordButton->setText( "单词");
-    GrammarButton->setText( "语法");
-
-    TextButton->move(ChoiceGroupBox->width()-65,3);
-    WordButton->move(5,3);
-    GrammarButton->move(ChoiceGroupBox->width()-200,3);
-
-    BegainButton->setText( "开始学习");
-    BegainButton->setGeometry((FunctionSelectionGroupBox->width()-260)/2,FunctionSelectionGroupBox->height()*0.55,260,80);
-    BegainButton->setStyleSheet("QPushButton{font-size:35px;font-family:Microsoft YaHei;color:#FFFFFF;border:2px groove gray;border-radius:10px;padding:2px 4px;font-weight:bold;}"
-                                "QPushButton{background:#98dd34;}"
-                                "QPushButton:hover{background:#85d413;}"
-                                "QPushButton:pressed{background:#7ac212;}");
-
-}
 
 void MainWindow::SetFillet()
 {
@@ -119,27 +81,38 @@ void MainWindow::SetFooterMessage()
 void MainWindow::SetSettingBar()
 {
     QGroupBox *SetButtonGroupBox=new QGroupBox(TopGroupBox);
+
     QPushButton *Button1=new QPushButton(SetButtonGroupBox);
     QPushButton *Button2=new QPushButton(SetButtonGroupBox);
     QPushButton *Button3=new QPushButton(SetButtonGroupBox);
     QPushButton *Button4=new QPushButton(SetButtonGroupBox);
 
-    SetButtonGroupBox->setGeometry(TopGroupBox->width()-260,7,250,55);
+    SetButtonGroupBox->setStyleSheet("border:0px");
 
-    Button4->setText( "×");
+    SetButtonGroupBox->setGeometry(TopGroupBox->width()-260,10,250,55);
 
-    Button1->setGeometry(0,0,55,55);
-    Button2->setGeometry(65,0,55,55);
-    Button3->setGeometry(130,0,55,55);
-    Button4->setGeometry(195,0,55,55);
+    Button1->setStyleSheet("background-image:url(:/imagefile/home);");
+    Button2->setStyleSheet("background-image:url(:/imagefile/help);");
+    Button3->setStyleSheet("background-image:url(:/imagefile/set);");
+    Button4->setStyleSheet("background-image:url(:/imagefile/close);");
+
+
+    Button1->setGeometry(0,0,51,51);
+    Button2->setGeometry(65,0,51,51);
+    Button3->setGeometry(130,0,51,51);
+    Button4->setGeometry(195,0,51,51);
+
+    QObject::connect(Button1,&QPushButton::clicked,this,&MainWindow::GoBackToMain);
+
+    QObject::connect(Button4, &QPushButton::clicked, &QApplication::quit);
 }
 
 void MainWindow::SetTopGroupBox()
 {
-    TopGroupBox->setGeometry(5,3,this->width()-10,this->height()*0.1-3);
+    TopGroupBox->setGeometry(5,3,this->width()-10,this->height()*0.11-3);
 
     QGroupBox *LogoGroupBox=new QGroupBox(TopGroupBox);
-    LogoGroupBox->setGeometry(20,15,150,40);
+    LogoGroupBox->setGeometry(20,19,150,40);
     LogoGroupBox->setStyleSheet("background-image:url(:/imagefile/logo);border:0px groove gray;border-radius:0px;padding:0px 0px;");
     SetSettingBar();
 
@@ -148,7 +121,7 @@ void MainWindow::SetTopGroupBox()
 void MainWindow::SetMainGroupBox()
 {
     MainUiGroupBox->setGeometry(5,TopGroupBox->height(),this->width()*0.7,this->height()-TopGroupBox->height()-FootGroupBox->height());
-    MainUiGroupBox->setStyleSheet("background-color:#ffffff;border:0px groove gray;border-radius:0px;padding:0px 0px;");
+    MainUiGroupBox->setStyleSheet("background-color:#ffffff;border:1px groove gray;border-radius:0px;padding:0px 0px;");
 }
 
 void MainWindow::SetRightGroupBox()
@@ -170,115 +143,36 @@ void MainWindow::SetRightGroupBox()
     ProblemButton->setGeometry((RightTopBox->width()-110)/2,(RightTopBox->height()-45)/2,110,40);
 }
 
-void MainWindow::SetWrodListGroupBox()
+
+void MainWindow::SetMainConnect()
 {
-    WrodListGroupBox->setGeometry(0,0,MainUiGroupBox->width(),MainUiGroupBox->height());
-    QPushButton *gotostudy=new QPushButton(WrodListGroupBox);
-    QPushButton *gototest=new QPushButton(WrodListGroupBox);
+    QObject::connect(FunctionSelection->BegainButton,&QPushButton::clicked,this,&MainWindow::GoToWordList);
+    QObject::connect(WordList->gotostudy,&QPushButton::clicked,this,&MainWindow::GoToWordStudy);
+}
 
-    gotostudy->setText("进入学习");
-    gototest->setText("马上测试");
+void MainWindow::AllWindowsHide()
+{
+    WordList->hide();
+    WordStudy->hide();
+}
 
-    gotostudy->setGeometry(590,540,80,30);
-    gototest->setGeometry(680,540,80,30);
+void MainWindow::GoBackToMain()
+{
+    FunctionSelection->show();
+    WordList->hide();
+    WordStudy->hide();
+}
 
-    WrodListGroupBox->setStyleSheet("QPushButton{background:#42A1E1}");
+void MainWindow::GoToWordList()
+{
+    FunctionSelection->hide();
+    WordList->show();
+    WordStudy->hide();
+}
 
-    QGroupBox *tipBox= new QGroupBox(WrodListGroupBox);
-    tipBox->setGeometry(10,45,WrodListGroupBox->width()-20,40);
-    tipBox->setStyleSheet("background:#F1F1F1;");
-    QLabel *tips = new QLabel(tipBox);
-    tips->setText("消息播放器：这是一条测试消息");
-    tips->move(15,15);
-
-    QLabel *numberTips = new QLabel(tipBox);
-    numberTips->setText("已选择 100 词/ 共100词");
-    numberTips->move(550,15);
-
-    QListWidget *WordList=new QListWidget(WrodListGroupBox);
-    WordList->setGeometry(15,100,WrodListGroupBox->width()-30,WrodListGroupBox->height()-200);
-    WordList->setStyleSheet("QListWidget{border:1px groove gray;}");
-    WordList->verticalScrollBar()->setStyleSheet("QScrollBar:vertical"
-                                                   "{"
-                                                   "width:12px;"
-                                                   "background:rgba(0,0,0,0%);"
-                                                   "margin:0px,0px,0px,0px;"
-                                                   "padding-top:0px;"
-                                                   "padding-bottom:0px;"
-                                                   "}"
-                                                   "QScrollBar::handle:vertical"
-                                                   "{"
-                                                   "width:12px;"
-                                                   "background:rgba(0,0,0,25%);"
-                                                   " border-radius:4px;"
-                                                   "min-height:20;"
-                                                   "}"
-                                                   "QScrollBar::handle:vertical:hover"
-                                                   "{"
-                                                   "width:12px;"
-                                                   "background:rgba(0,0,0,50%);"
-                                                   " border-radius:4px;"
-                                                   "min-height:20;"
-                                                   "}"
-                                                   "QScrollBar::add-line:vertical"
-                                                   "{"
-                                                   "height:9px;width:12px;"
-                                                   "border-image:url(:/images/a/3.png);"
-                                                   "subcontrol-position:bottom;"
-                                                   "}"
-                                                   "QScrollBar::sub-line:vertical"
-                                                   "{"
-                                                   "height:9px;width:12px;"
-                                                   "border-image:url(:/images/a/1.png);"
-                                                   "subcontrol-position:top;"
-                                                   "}"
-                                                   "QScrollBar::add-line:vertical:hover"
-                                                   "{"
-                                                   "height:9px;width:12px;"
-                                                   "border-image:url(:/images/a/4.png);"
-                                                   "subcontrol-position:bottom;"
-                                                   "}"
-                                                   "QScrollBar::sub-line:vertical:hover"
-                                                   "{"
-                                                   "height:9px;width:12px;"
-                                                   "border-image:url(:/images/a/2.png);"
-                                                   "subcontrol-position:top;"
-                                                   "}"
-                                                   "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical"
-                                                   "{"
-                                                   "background:rgba(0,0,0,10%);"
-                                                   "border-radius:4px;"
-                                                   "}"
-                                                   );
-
-    for(int i=0; i<100; i++)
-    {
-        QListWidgetItem *item = new QListWidgetItem("a",NULL);
-        QWidget *itemwidget=new QWidget();
-        QPushButton *button=new QPushButton(itemwidget);
-        QCheckBox *checkBox =new QCheckBox(itemwidget);
-        QLabel *japanese= new QLabel(itemwidget);
-        QLabel *chinese= new QLabel(itemwidget);
-        QString xx( "日本語");
-        xx+=QString::number(i);
-        japanese->setText(xx);
-        chinese->setText( "【名词】中文翻译");
-        item->setSizeHint(QSize(WordList->width()-25, 38));
-        button->setGeometry(65,9,20,20);
-        checkBox->setGeometry(35,9,20,20);
-        japanese->move(100,11);
-        chinese->move(370,11);
-        itemwidget->setStyleSheet("QWidget{background:#FFFFFF;}"
-                                  "QWidget:hover{background:#F2F1F1;}"
-                                  "QWidget:pressed{background:#F2F1F1;}"
-                                  "QLabel{background-color:rgba(255,255,255,0);}");
-        button->setStyleSheet("QPushButton{background:#62B1E1;}"
-                              "QPushButton:hover{background:#42A1E1;}"
-                              "QPushButton:pressed{background:#2281B1;}");
-        //QComboBox *box = new QComboBox();
-        //box->addItems(QStringList()<<"1"<<"2");
-        WordList->addItem(item);
-        WordList->setItemWidget(item,itemwidget);
-
-    }
+void MainWindow::GoToWordStudy()
+{
+    FunctionSelection->hide();
+    WordList->hide();
+    WordStudy->show();
 }

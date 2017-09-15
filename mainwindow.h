@@ -1,9 +1,13 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QGroupBox>
+#include <QPushButton>
 #include <QMainWindow>
-#include<QGroupBox>
-#include"management.h"
+#include "wordlistui.h"
+#include "management.h"
+#include "wordstudyui.h"
+#include "functionselectionui.h"
 
 class MainWindow : public QMainWindow
 {
@@ -14,25 +18,34 @@ public:
     ~MainWindow();
 private:
     QGroupBox *MainUiGroupBox;
-    QGroupBox *FunctionSelectionGroupBox;
+
+    WordListUI *WordList;
+    WordStudyUI *WordStudy;
+    FunctionSelectionUI *FunctionSelection;
+
     QGroupBox *TopGroupBox;
     QGroupBox *FootGroupBox;
     QGroupBox *RightGroupBox;
-
-    QGroupBox *WrodListGroupBox;
-
     management *MainManagement;
+
 private:
     void SetWindowsSize(int x,int y);
-    void SetFunctionSelectionGroupBox();
     void SetFillet();
     void SetFooterMessage();
     void SetSettingBar();
     void SetTopGroupBox();
     void SetMainGroupBox();
     void SetRightGroupBox();
-    void SetWrodListGroupBox();
     //设定初始窗口大小
+
+    void SetMainConnect();
+    void AllWindowsHide();
+public slots:
+    void GoBackToMain();
+    void GoToWordList();
+    void GoToWordStudy();
+
+
 };
 
 #endif // MAINWINDOW_H
