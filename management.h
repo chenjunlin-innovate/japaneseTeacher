@@ -17,7 +17,7 @@ public:
     void readfile(){
         ifstream module;
         string vaule;
-        module.open(":/1.csv");
+        module.open("D://01/word");
         while(module.peek()!=EOF){
             getline(module,vaule,',');
             string a=vaule;
