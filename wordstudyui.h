@@ -11,6 +11,15 @@ class WordStudyUI : public QWidget
 public:
     explicit WordStudyUI(QWidget *parent = nullptr);
 
+    QPushButton *Radio;
+    QLabel *japanese;
+    QLabel *read;
+    QLabel *chinese;
+    QPushButton *firstButton;
+    QPushButton *secondButton;
+    QPushButton *previous;
+    QPushButton *nextword;
+
 signals:
 
 public slots:
