@@ -30,7 +30,7 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
     numberTips->setText("已选择 100 词/ 共100词");
     numberTips->move(550,15);
 
-    QListWidget *WordList=new QListWidget(this);
+    WordList=new QListWidget(this);
     WordList->setGeometry(15,100,this->width()-30,this->height()-200);
     WordList->setStyleSheet("QListWidget{border:1px groove gray;}");
     WordList->verticalScrollBar()->setStyleSheet("QScrollBar:vertical"
