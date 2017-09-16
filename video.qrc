@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/01">
+    <qresource prefix="/1">
         <file alias="1w1">video/01/1W1.mp3</file>
         <file alias="1w2">video/01/1W2.mp3</file>
         <file alias="1w3">video/01/1W3.mp3</file>
