@@ -22,6 +22,19 @@ public:
      ClassNumber=s;
     }
 
+    int get_sise()const{
+        return Words.size();
+    }
+    string get_i_Jan(int i)const{
+        return Words[i].get_japanese();
+    }
+    string get_i_propety(int i){
+        return Words[i].get_property();
+    }
+    string get_i_ch(int i){
+        return Words[i].get_chinese();
+    }
+
     void readfile(){
         ifstream module;
         string vaule;
