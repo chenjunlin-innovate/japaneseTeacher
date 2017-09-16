@@ -88,7 +88,10 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
                                                  "}"
                                                  );
 
+}
 
+void WordListUI::AddWord()
+{
     for(int i=0; i<100; i++)
     {
         QListWidgetItem *item = new QListWidgetItem("a",NULL);

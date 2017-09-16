@@ -166,6 +166,7 @@ void MainWindow::GoBackToMain()
 void MainWindow::GoToWordList()
 {
     FunctionSelection->hide();
+    WordList->AddWord();
     WordList->show();
     WordStudy->hide();
 }

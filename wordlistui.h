@@ -27,6 +27,8 @@ public:
     QLabel *tips;
     QLabel *numberTips;
     QListWidget *WordList;
+
+    void AddWord();
 signals:
 
 public slots:
