@@ -1,4 +1,4 @@
-#include "management.h"
+﻿#include "management.h"
 
 management::management()
 {

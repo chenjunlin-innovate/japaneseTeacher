@@ -12,6 +12,7 @@ string property;
 
 public:
     words();
+    words(string a,string b,string c,string d):japanese(a),pronunciation(b),chinese(c),property(d){}
 string get_japanese()const{
     return japanese;
 }
