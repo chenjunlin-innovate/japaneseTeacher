@@ -54,20 +54,14 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
 void WordStudyUI::former_change(){
     MainManagement->fomer();
     int flag=MainManagement->getlocation();
-    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
-    japanese->setText(xx);
-    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
-    read->setText(xx);
-    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
-    chinese->setText(xx);
+    japanese->setText(QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data()));
+    read->setText(QString::fromLocal8Bit(MainManagement->get_pronun(flag).data()));
+    chinese->setText(QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
 }
 void WordStudyUI::next_change(){
     MainManagement->next();
     int flag=MainManagement->getlocation();
-    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
-    japanese->setText(xx);
-    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
-    read->setText(xx);
-    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
-    chinese->setText(xx);
+    japanese->setText(QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data()));
+    read->setText(QString::fromLocal8Bit(MainManagement->get_pronun(flag).data()));
+    chinese->setText(QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
 }
