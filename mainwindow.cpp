@@ -27,7 +27,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setStyleSheet("QWidget{background-color:#4da6de;border:2px groove gray;border-radius:10px;padding:2px 4px;}");
 
     SetFillet();
-
+    MainManagement=new management;
     TopGroupBox=new QGroupBox(this);                           SetTopGroupBox();
     FootGroupBox=new QGroupBox(this);                          SetFooterMessage();
     MainUiGroupBox=new QGroupBox(this);                        SetMainGroupBox();
@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-
+    delete MainManagement;
 }
 
 void MainWindow::SetWindowsSize(int x, int y)
@@ -167,6 +167,7 @@ void MainWindow::GoBackToMain()
 
 void MainWindow::GoToWordList()
 {
+    MainManagement->readfile();
     FunctionSelection->hide();
     WordList->AddWord();
     WordList->show();
