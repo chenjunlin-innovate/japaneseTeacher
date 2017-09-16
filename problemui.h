@@ -14,11 +14,9 @@ public:
     QLabel *ProblemDescribe;
 
     QPushButton *ProblemOption1;
-    QPushButton *Problem;
+    QPushButton *ProblemOption2;
     QPushButton *ProblemOption3;
     QPushButton *ProblemOption4;
-
-
 signals:
 
 public slots:
