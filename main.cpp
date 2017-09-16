@@ -4,9 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    management me;
-    me.readfile();
-    cout<<"bug"<<endl;
+
     QApplication a(argc, argv);
     MainWindow w;
 

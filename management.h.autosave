@@ -21,6 +21,10 @@ public:
     void get_num(string s){
      ClassNumber=s;
     }
+    
+    int get_sise()const{
+        return Words.size();
+    }
 
     void readfile(){
         ifstream module;

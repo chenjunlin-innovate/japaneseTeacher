@@ -1,4 +1,4 @@
-#ifndef FUNCTIONSELECTIONUI_H
+﻿#ifndef FUNCTIONSELECTIONUI_H
 #define FUNCTIONSELECTIONUI_H
 
 #include <QWidget>
@@ -25,6 +25,7 @@ public:
 signals:
 
 public slots:
+
 
 };
 

@@ -1,4 +1,5 @@
-#include "wordlistui.h"
+﻿#include "wordlistui.h"
+#include<QMediaPlayer>
 
 WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
 {
@@ -97,6 +98,7 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
         QString xx( "日本語");
+
         xx+=QString::number(i);
         japanese->setText(xx);
         chinese->setText( "【名词】中文翻译");
