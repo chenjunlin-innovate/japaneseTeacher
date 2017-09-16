@@ -22,6 +22,4 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
     ProblemOption2->setGeometry(this->width()*0.06,this->height()*0.45,560,60);
     ProblemOption3->setGeometry(this->width()*0.06,this->height()*0.6,560,60);
     ProblemOption4->setGeometry(this->width()*0.06,this->height()*0.75,560,60);
-
-
 }
