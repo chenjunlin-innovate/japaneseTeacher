@@ -41,6 +41,8 @@ MainWindow::MainWindow(QWidget *parent)
     //WordStudyGroupBox->hide();
 
     WordList->MainManagement=MainManagement;
+    WordStudy->MainManagement=MainManagement;
+    FunctionSelection->MainManagement=MainManagement;
 
     AllWindowsHide();   //隐藏所有窗口
     SetMainConnect();   //各类窗口切换Connect

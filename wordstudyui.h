@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include "management.h"
 
 class WordStudyUI : public QWidget
 {
@@ -20,6 +21,7 @@ public:
     QPushButton *previous;
     QPushButton *nextword;
 
+    management *MainManagement;
 signals:
 
 public slots:

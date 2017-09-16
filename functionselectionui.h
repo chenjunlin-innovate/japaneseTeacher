@@ -6,6 +6,7 @@
 #include <QPushButton>
 #include <QRadioButton>
 #include <QLabel>
+#include "management.h"
 
 class FunctionSelectionUI : public QWidget
 {
@@ -22,6 +23,8 @@ public:
 
     QLabel *MainLabel;
     QLabel *SpeedLabel;
+
+    management *MainManagement;
 signals:
 
 public slots:
