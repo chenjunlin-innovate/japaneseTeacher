@@ -1,1 +1,24 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/01">
+        <file alias="1w1">video/01/1W1.mp3</file>
+        <file alias="1w2">video/01/1W2.mp3</file>
+        <file alias="1w3">video/01/1W3.mp3</file>
+        <file alias="1w4">video/01/1W4.mp3</file>
+        <file alias="1w5">video/01/1W5.mp3</file>
+        <file alias="1w6">video/01/1W6.mp3</file>
+        <file alias="1w7">video/01/1W7.mp3</file>
+        <file alias="1w8">video/01/1W8.mp3</file>
+        <file alias="1w9">video/01/1W9.mp3</file>
+        <file alias="1w10">video/01/1W10.mp3</file>
+        <file alias="1w11">video/01/1W11.mp3</file>
+        <file alias="1w12">video/01/1W12.mp3</file>
+        <file alias="1w13">video/01/1W13.mp3</file>
+        <file alias="1w14">video/01/1W14.mp3</file>
+        <file alias="1w15">video/01/1W15.mp3</file>
+        <file alias="1w16">video/01/1W16.mp3</file>
+        <file alias="1w17">video/01/1W17.mp3</file>
+        <file alias="1w18">video/01/1W18.mp3</file>
+        <file alias="1w19">video/01/1W19.mp3</file>
+        <file alias="1w20">video/01/1W20.mp3</file>
+    </qresource>
+</RCC>
