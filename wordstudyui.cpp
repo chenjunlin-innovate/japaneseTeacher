@@ -17,17 +17,20 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
 
     japanese=new QLabel(this);
     japanese->setText("日本語");
-    japanese->move(this->width()*0.19,this->height()*0.260);
+    //japanese->move(this->width()*0.19,this->height()*0.260);
+    japanese->setGeometry(this->width()*0.19,this->height()*0.260,600,56);
     japanese->setStyleSheet("font-size:55px;font-family:Microsoft YaHei;");
 
     read=new QLabel(this);
     read->setText("[ にほん ご ]");
-    read->move(this->width()*0.19,this->height()*0.4);
+    //read->move(this->width()*0.19,this->height()*0.4);
+    read->setGeometry(this->width()*0.19,this->height()*0.4,400,28);
     read->setStyleSheet("font-size:27px;font-family:Microsoft YaHei;");
 
     chinese=new QLabel(this);
     chinese->setText("【名词】中文翻译");
-    chinese->move(this->width()*0.19,this->height()*0.5);
+    //chinese->move(this->width()*0.19,this->height()*0.5);
+    chinese->setGeometry(this->width()*0.19,this->height()*0.5,300,26);
     chinese->setStyleSheet("font-size:25px;font-family:Microsoft YaHei;");
 
     firstButton=new QPushButton(this);

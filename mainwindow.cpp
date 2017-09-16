@@ -186,5 +186,6 @@ void MainWindow::GoToWordStudy()
     FunctionSelection->hide();
     WordList->hide();
     WordStudy->show();
+    WordStudy->former_change();
     Problem->hide();
 }
