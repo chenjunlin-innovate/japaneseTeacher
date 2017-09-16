@@ -92,7 +92,9 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
 
 void WordListUI::AddWord()
 {
-    for(int i=0; i<100; i++)
+    int count=MainManagement->get_sise();
+
+    for(int i=0; i<count; i++)
     {
         QListWidgetItem *item = new QListWidgetItem("a",NULL);
         QWidget *itemwidget=new QWidget();
@@ -100,11 +102,13 @@ void WordListUI::AddWord()
         QCheckBox *checkBox =new QCheckBox(itemwidget);
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
-        QString xx( "日本語");
+
+        QString xx=QString::fromStdString(MainManagement->get_i_Jan(i));
 
         xx+=QString::number(i);
         japanese->setText(xx);
-        chinese->setText( "【名词】中文翻译");
+        xx=QString::fromStdString(MainManagement->get_i_propety(i)+MainManagement->get_i_ch(i));
+        chinese->setText( xx);
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);
         checkBox->setGeometry(35,9,20,20);

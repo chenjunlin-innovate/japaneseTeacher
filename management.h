@@ -22,7 +22,7 @@ public:
      ClassNumber=s;
     }
 
-    int get_sise()const{
+    int get_sise(){
         return Words.size();
     }
     string get_i_Jan(int i)const{
@@ -38,8 +38,8 @@ public:
     void readfile(){
         ifstream module;
         string vaule;
-        string temp="D://"+ClassNumber+"//word.csv";
-        module.open("temp");
+
+        module.open("D://01//word.csv");
         while(module.peek()!=EOF){
             getline(module,vaule,',');
             string a=vaule;
