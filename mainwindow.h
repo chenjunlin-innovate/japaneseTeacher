@@ -22,9 +22,8 @@ private:
 
     WordListUI *WordList;
     WordStudyUI *WordStudy;
-    FunctionSelectionUI *FunctionSelection;
-
     ProblemUI *Problem;
+    FunctionSelectionUI *FunctionSelection;
 
     QGroupBox *TopGroupBox;
     QGroupBox *FootGroupBox;

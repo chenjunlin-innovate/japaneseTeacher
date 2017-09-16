@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     FunctionSelection =new FunctionSelectionUI(MainUiGroupBox);  //主页选择页面
     WordList =new WordListUI(MainUiGroupBox);                    //单词列表
     WordStudy = new WordStudyUI(MainUiGroupBox);                 //单词学习
+    Problem = new ProblemUI(MainUiGroupBox);                     //测试页面
 
     //WordStudyGroupBox=new QGroupBox(MainUiGroupBox);           SetWordStudyGroupBox();
     //WordStudyGroupBox->hide();
@@ -158,6 +159,7 @@ void MainWindow::AllWindowsHide()
 {
     WordList->hide();
     WordStudy->hide();
+    Problem->hide();
 }
 
 void MainWindow::GoBackToMain()
@@ -165,6 +167,7 @@ void MainWindow::GoBackToMain()
     FunctionSelection->show();
     WordList->hide();
     WordStudy->hide();
+    Problem->hide();
 }
 
 void MainWindow::GoToWordList()
@@ -174,6 +177,7 @@ void MainWindow::GoToWordList()
     WordList->AddWord();
     WordList->show();
     WordStudy->hide();
+    Problem->hide();
 }
 
 void MainWindow::GoToWordStudy()
@@ -181,4 +185,5 @@ void MainWindow::GoToWordStudy()
     FunctionSelection->hide();
     WordList->hide();
     WordStudy->show();
+    Problem->hide();
 }
