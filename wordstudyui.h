@@ -1,4 +1,4 @@
-#ifndef WORDSTUDYUI_H
+﻿#ifndef WORDSTUDYUI_H
 #define WORDSTUDYUI_H
 
 #include <QWidget>
@@ -22,9 +22,11 @@ public:
     QPushButton *nextword;
 
     management *MainManagement;
+    void change();
 signals:
 
 public slots:
+
 };
 
 #endif // WORDSTUDYUI_H
