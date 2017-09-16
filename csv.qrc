@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/01">
+    <qresource prefix="/1">
         <file alias="word">csv/01/word.csv</file>
     </qresource>
 </RCC>
