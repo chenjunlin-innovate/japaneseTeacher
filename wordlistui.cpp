@@ -1,5 +1,6 @@
 ﻿#include "wordlistui.h"
 #include<QMediaPlayer>
+#include<QDebug>
 
 WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
 {
@@ -103,11 +104,13 @@ void WordListUI::AddWord()
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
 
-        QString xx=QString::fromStdString(MainManagement->get_i_Jan(i));
+        QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(i).data());
 
-        xx+=QString::number(i);
+        //xx+=QString::number(i);
+
         japanese->setText(xx);
-        xx=QString::fromStdString(MainManagement->get_i_propety(i)+MainManagement->get_i_ch(i));
+
+        xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i)).data());
         chinese->setText( xx);
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);

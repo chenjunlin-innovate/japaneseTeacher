@@ -43,11 +43,12 @@ public:
         while(module.peek()!=EOF){
             getline(module,vaule,',');
             string a=vaule;
+            cout<<a<<endl;
             getline(module,vaule,',');
             string b=vaule;
             getline(module,vaule,',');
             string c=vaule;
-            getline(module,vaule,',');
+            getline(module,vaule,'\n');
             string d=vaule;
             words w(a,b,c,d);
             Words.push_back(w);
