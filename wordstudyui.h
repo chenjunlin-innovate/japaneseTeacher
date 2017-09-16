@@ -22,11 +22,12 @@ public:
     QPushButton *nextword;
 
     management *MainManagement;
-    void change();
+
 signals:
 
 public slots:
-
+    void former_change();
+    void next_change();
 };
 
 #endif // WORDSTUDYUI_H

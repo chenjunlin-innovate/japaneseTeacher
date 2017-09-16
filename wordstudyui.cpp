@@ -45,9 +45,21 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
     nextword=new QPushButton(this);
     nextword->setText("下一个");
     nextword->setGeometry(this->width()*0.78,this->height()*0.83,90,33);
+    QObject::connect(previous,&QPushButton::clicked,this,&WordStudyUI::former_change);
+    QObject::connect(nextword,&QPushButton::clicked,this,&WordStudyUI::next_change);
 }
-void WordStudyUI::change(){
-
+void WordStudyUI::former_change(){
+    MainManagement->fomer();
+    int flag=MainManagement->getlocation();
+    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
+    japanese->setText(xx);
+    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
+    read->setText(xx);
+    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
+    chinese->setText(xx);
+}
+void WordStudyUI::next_change(){
+    MainManagement->next();
     int flag=MainManagement->getlocation();
     QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
     japanese->setText(xx);
