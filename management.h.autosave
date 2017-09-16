@@ -1,15 +1,20 @@
 ﻿#ifndef MANAGEMENT_H
 #define MANAGEMENT_H
-
+#include"words.h"
+#include<string>;
+using namespace std;
 
 class management
 {
 private:
     int ClassNumber;
+    vector<words> Words;
 public:
     management();
-
-
+    void read(){
+    
+    }
+  
 };
 
 #endif // MANAGEMENT_H
