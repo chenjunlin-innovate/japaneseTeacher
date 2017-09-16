@@ -29,14 +29,16 @@ SOURCES += main.cpp\
     functionselectionui.cpp \
     wordlistui.cpp \
     wordstudyui.cpp \
-    problemui.cpp
+    problemui.cpp \
+    words.cpp
 
 HEADERS  += mainwindow.h \
     management.h \
     functionselectionui.h \
     wordlistui.h \
     wordstudyui.h \
-    problemui.h
+    problemui.h \
+    words.h
 
 RESOURCES += \
     icon.qrc \
