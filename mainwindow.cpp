@@ -40,6 +40,8 @@ MainWindow::MainWindow(QWidget *parent)
     //WordStudyGroupBox=new QGroupBox(MainUiGroupBox);           SetWordStudyGroupBox();
     //WordStudyGroupBox->hide();
 
+    WordList->MainManagement=MainManagement;
+
     AllWindowsHide();   //隐藏所有窗口
     SetMainConnect();   //各类窗口切换Connect
 }

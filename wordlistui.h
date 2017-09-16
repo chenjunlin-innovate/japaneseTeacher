@@ -13,6 +13,7 @@
 #include <vector>
 #include <QScrollBar>
 #include <QSplashScreen>
+#include "management.h"
 
 
 class WordListUI : public QWidget
@@ -27,6 +28,8 @@ public:
     QLabel *tips;
     QLabel *numberTips;
     QListWidget *WordList;
+
+    management *MainManagement;
 
     void AddWord();
 signals:
