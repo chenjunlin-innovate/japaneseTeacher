@@ -7,6 +7,7 @@
 #include "wordlistui.h"
 #include "management.h"
 #include "wordstudyui.h"
+#include "programui.h"
 #include "functionselectionui.h"
 
 class MainWindow : public QMainWindow
@@ -22,6 +23,8 @@ private:
     WordListUI *WordList;
     WordStudyUI *WordStudy;
     FunctionSelectionUI *FunctionSelection;
+
+    ProgramUi *Program;
 
     QGroupBox *TopGroupBox;
     QGroupBox *FootGroupBox;
