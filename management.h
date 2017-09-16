@@ -16,10 +16,21 @@ class management
 private:
     string ClassNumber;
     vector<words> Words;
+    int location;
 public:
     management();
     void get_num(string s){
      ClassNumber=s;
+    }
+    void next(){
+    if(location<Words.size()-1)location++;
+    }
+    void fomer(){
+        if(location>0)location--;
+
+    }
+    int getlocation(){
+        return location;
     }
 
     int get_sise(){
@@ -34,6 +45,9 @@ public:
     string get_i_ch(int i){
         return Words[i].get_chinese();
     }
+    string get_pronun(int i){
+        return Words[i].get_pronunciation();
+    }
 
     void readfile(){
         ifstream module;
@@ -43,7 +57,6 @@ public:
         while(module.peek()!=EOF){
             getline(module,vaule,',');
             string a=vaule;
-            cout<<a<<endl;
             getline(module,vaule,',');
             string b=vaule;
             getline(module,vaule,',');

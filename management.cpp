@@ -1,6 +1,6 @@
 ﻿#include "management.h"
 
-management::management()
+management::management():ClassNumber("1"),location(0)
 {
 
 }

@@ -1,4 +1,4 @@
-#include "wordstudyui.h"
+﻿#include "wordstudyui.h"
 
 WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
 {
@@ -45,4 +45,14 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
     nextword=new QPushButton(this);
     nextword->setText("下一个");
     nextword->setGeometry(this->width()*0.78,this->height()*0.83,90,33);
+}
+void WordStudyUI::change(){
+
+    int flag=MainManagement->getlocation();
+    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
+    japanese->setText(xx);
+    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
+    read->setText(xx);
+    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
+    chinese->setText(xx);
 }
