@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include "management.h"
 
 class ProblemUI : public QWidget
 {
@@ -17,6 +18,8 @@ public:
     QPushButton *ProblemOption2;
     QPushButton *ProblemOption3;
     QPushButton *ProblemOption4;
+
+    management *MainManagement;
 signals:
 
 public slots:
