@@ -154,6 +154,7 @@ void MainWindow::SetMainConnect()
 {
     QObject::connect(FunctionSelection->BegainButton,&QPushButton::clicked,this,&MainWindow::GoToWordList);
     QObject::connect(WordList->gotostudy,&QPushButton::clicked,this,&MainWindow::GoToWordStudy);
+    QObject::connect(WordList->gototest,&QPushButton::clicked,this,&MainWindow::GoToProblem);
 }
 
 void MainWindow::AllWindowsHide()
@@ -188,4 +189,12 @@ void MainWindow::GoToWordStudy()
     WordStudy->show();
     WordStudy->former_change();
     Problem->hide();
+}
+
+void MainWindow::GoToProblem()
+{
+    FunctionSelection->hide();
+    WordList->hide();
+    WordStudy->hide();
+    Problem->show();
 }

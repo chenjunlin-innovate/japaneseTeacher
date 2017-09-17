@@ -46,6 +46,7 @@ public slots:
     void GoBackToMain();
     void GoToWordList();
     void GoToWordStudy();
+    void GoToProblem();
 };
 
 #endif // MAINWINDOW_H
