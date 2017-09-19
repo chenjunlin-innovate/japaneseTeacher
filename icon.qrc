@@ -5,6 +5,5 @@
         <file alias="set">logo/set.png</file>
         <file alias="help">logo/help.png</file>
         <file alias="close">logo/close.png</file>
-        <file alias="word">logo/word.csv</file>
     </qresource>
 </RCC>

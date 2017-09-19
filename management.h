@@ -1,14 +1,14 @@
 ﻿#ifndef MANAGEMENT_H
 #define MANAGEMENT_H
-#include"words.h"
-#include<string>
-#include<QString>
-#include<QFile>
-#include<fstream>
-#include<vector>
-#include<iostream>
-#include<stdlib.h>
-#include<sstream>
+#include "words.h"
+#include <string>
+#include <QString>
+#include <QFile>
+#include <fstream>
+#include <vector>
+#include <iostream>
+#include <stdlib.h>
+#include <sstream>
 
 using namespace std;
 
@@ -28,12 +28,10 @@ public:
     }
     void fomer(){
         if(location>0)location--;
-
     }
     int getlocation(){
         return location;
     }
-
     int get_sise(){
         return Words.size();
     }

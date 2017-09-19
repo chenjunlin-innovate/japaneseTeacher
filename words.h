@@ -1,6 +1,6 @@
 ﻿#ifndef WORDS_H
 #define WORDS_H
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 class words

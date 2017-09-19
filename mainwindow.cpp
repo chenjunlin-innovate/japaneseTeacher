@@ -1,22 +1,22 @@
 ﻿#include"mainwindow.h"
-#include<QMouseEvent>
-#include<QGroupBox>
-#include<QButtonGroup>
-#include<QPushButton>
-#include<QString>
-#include<QPainter>
-#include<QLabel>
-#include<QBitmap>
-#include<QFont>
-#include<QRadioButton>
-#include<QWidget>
-#include<QListWidget>
-#include<QComboBox>
-#include<QCheckBox>
-#include<QScrollBar>
-#include<QSplashScreen>
+#include <QMouseEvent>
+#include <QGroupBox>
+#include <QButtonGroup>
+#include <QPushButton>
+#include <QString>
+#include <QPainter>
+#include <QLabel>
+#include <QBitmap>
+#include <QFont>
+#include <QRadioButton>
+#include <QWidget>
+#include <QListWidget>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QScrollBar>
+#include <QSplashScreen>
 #include <QApplication>
-#include<QObject>
+#include <QObject>
 
 
 MainWindow::MainWindow(QWidget *parent)

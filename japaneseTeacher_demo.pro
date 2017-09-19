@@ -30,7 +30,9 @@ SOURCES += main.cpp\
     wordlistui.cpp \
     wordstudyui.cpp \
     problemui.cpp \
-    words.cpp
+    words.cpp \
+    grammarstudyui.cpp \
+    grammarlistui.cpp
 
 HEADERS  += mainwindow.h \
     management.h \
@@ -38,7 +40,9 @@ HEADERS  += mainwindow.h \
     wordlistui.h \
     wordstudyui.h \
     problemui.h \
-    words.h
+    words.h \
+    grammarstudyui.h \
+    grammarlistui.h
 
 RESOURCES += \
     icon.qrc \
