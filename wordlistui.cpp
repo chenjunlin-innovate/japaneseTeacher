@@ -104,13 +104,13 @@ void WordListUI::AddWord()
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
 
-        QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(i).data());
+        QString xx=QString::fromStdString(MainManagement->get_i_Jan(i));
 
         //xx+=QString::number(i);
 
         japanese->setText(xx);
 
-        xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i)).data());
+        xx=QString::fromStdString("["+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i));
         chinese->setText( xx);
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);

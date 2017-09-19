@@ -8,6 +8,7 @@
 #include<vector>
 #include<iostream>
 #include<stdlib.h>
+#include<sstream>
 
 using namespace std;
 
@@ -53,15 +54,27 @@ public:
         ifstream module;
         string vaule;
 
+        QFile modulex(":/01/word");
+
+        modulex.open(QFile::ReadOnly);
+
+        QString vaulex=modulex.readAll();
+
+        vaule=vaulex.toStdString();
+
+        stringstream xx;
+
+        xx<<vaule;
+
         module.open("D://01//word.csv");
-        while(module.peek()!=EOF){
-            getline(module,vaule,',');
+        while(xx.peek()!=EOF){
+            getline(xx,vaule,',');
             string a=vaule;
-            getline(module,vaule,',');
+            getline(xx,vaule,',');
             string b=vaule;
-            getline(module,vaule,',');
+            getline(xx,vaule,',');
             string c=vaule;
-            getline(module,vaule,'\n');
+            getline(xx,vaule,'\n');
             string d=vaule;
             words w(a,b,c,d);
             Words.push_back(w);
