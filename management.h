@@ -54,7 +54,7 @@ public:
         string vaule;
         stringstream module;
 
-        QFile modulex(":/01/word");
+        QFile modulex(":/1/word");
         modulex.open(QFile::ReadOnly);
 
         module<<modulex.readAll().toStdString();
