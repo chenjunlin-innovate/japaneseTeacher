@@ -108,10 +108,16 @@ void WordListUI::AddWord()
 
         //xx+=QString::number(i);
 
+        QMediaPlayer *player=new QMediaPlayer(this);
+
+        QString Url=("qrc:///1/1w");
+        Url+=QString::number(i+1);
+        player->setMedia(QUrl(Url));
+
         japanese->setText(xx);
 
         xx=QString::fromStdString("[ "+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i));
-        chinese->setText( xx);
+        chinese->setText(xx);
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);
         checkBox->setGeometry(35,9,20,20);
@@ -130,5 +136,6 @@ void WordListUI::AddWord()
         WordList->addItem(item);
         WordList->setItemWidget(item,itemwidget);
 
+        QObject::connect(button,&QPushButton::clicked,player,&QMediaPlayer::play);
     }
 }
