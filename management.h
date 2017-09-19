@@ -51,24 +51,22 @@ public:
     }
 
     void readfile(){
-        ifstream module;
         string vaule;
+        stringstream module;
 
         QFile modulex(":/01/word");
         modulex.open(QFile::ReadOnly);
 
-        stringstream xx;
-        xx<<modulex.readAll().toStdString();
+        module<<modulex.readAll().toStdString();
 
-        module.open("D://01//word.csv");
-        while(xx.peek()!=EOF){
-            getline(xx,vaule,',');
+        while(module.peek()!=EOF){
+            getline(module,vaule,',');
             string a=vaule;
-            getline(xx,vaule,',');
+            getline(module,vaule,',');
             string b=vaule;
-            getline(xx,vaule,',');
+            getline(module,vaule,',');
             string c=vaule;
-            getline(xx,vaule,'\n');
+            getline(module,vaule,'\n');
             string d=vaule;
             words w(a,b,c,d);
             Words.push_back(w);
