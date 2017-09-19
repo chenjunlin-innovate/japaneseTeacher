@@ -108,7 +108,7 @@ void WordListUI::AddWord()
 
         //xx+=QString::number(i);
 
-        QMediaPlayer *player=new QMediaPlayer(this);
+        QMediaPlayer *player=new QMediaPlayer(itemwidget);
 
         QString Url=("qrc:///1/1w");
         Url+=QString::number(i+1);

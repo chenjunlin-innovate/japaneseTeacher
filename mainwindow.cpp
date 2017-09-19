@@ -168,12 +168,14 @@ void MainWindow::GoBackToMain()
 {
     FunctionSelection->show();
     WordList->hide();
+    WordList->WordList->clear();
     WordStudy->hide();
     Problem->hide();
 }
 
 void MainWindow::GoToWordList()
 {
+    MainManagement->clear();
     MainManagement->readfile();
     FunctionSelection->hide();
     WordList->AddWord();

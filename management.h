@@ -20,6 +20,10 @@ private:
     int location;
 public:
     management();
+    void clear(){
+        Words.clear();
+    }
+
     void get_num(string s){
      ClassNumber=s;
     }
