@@ -20,6 +20,15 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
     gotostudy->setText("进入学习");
     gototest->setText("马上测试");
 
+    gotostudy->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
+                             "QPushButton{background:#62B1E1;}"
+                             "QPushButton:hover{background:#42A1E1;}"
+                             "QPushButton:pressed{background:#2281B1;}");
+    gototest->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
+                            "QPushButton{background:#62B1E1;}"
+                            "QPushButton:hover{background:#42A1E1;}"
+                            "QPushButton:pressed{background:#2281B1;}");
+
     gotostudy->setGeometry(540,525,80,30);
     gototest->setGeometry(630,525,80,30);
 
