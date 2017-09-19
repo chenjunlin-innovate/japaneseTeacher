@@ -55,16 +55,10 @@ public:
         string vaule;
 
         QFile modulex(":/01/word");
-
         modulex.open(QFile::ReadOnly);
 
-        QString vaulex=modulex.readAll();
-
-        vaule=vaulex.toStdString();
-
         stringstream xx;
-
-        xx<<vaule;
+        xx<<modulex.readAll().toStdString();
 
         module.open("D://01//word.csv");
         while(xx.peek()!=EOF){

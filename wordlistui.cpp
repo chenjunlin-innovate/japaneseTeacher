@@ -110,7 +110,7 @@ void WordListUI::AddWord()
 
         japanese->setText(xx);
 
-        xx=QString::fromStdString("["+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i));
+        xx=QString::fromStdString("[ "+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i));
         chinese->setText( xx);
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);
