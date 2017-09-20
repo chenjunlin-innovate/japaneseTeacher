@@ -1,18 +1,7 @@
 #ifndef WORDLISTUI_H
 #define WORDLISTUI_H
 
-#include <QWidget>
-#include <QPushButton>
-#include <QLabel>
-#include <QGroupBox>
-#include <QListWidget>
-#include <QListWidgetItem>
-#include <QCheckBox>
-#include <QSize>
-#include <QString>
-#include <vector>
-#include <QScrollBar>
-#include <QSplashScreen>
+#include "qheadfile.h"
 #include "management.h"
 
 

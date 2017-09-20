@@ -32,7 +32,8 @@ SOURCES += main.cpp\
     problemui.cpp \
     words.cpp \
     grammarstudyui.cpp \
-    grammarlistui.cpp
+    grammarlistui.cpp \
+    topwindowsui.cpp
 
 HEADERS  += mainwindow.h \
     management.h \
@@ -42,7 +43,9 @@ HEADERS  += mainwindow.h \
     problemui.h \
     words.h \
     grammarstudyui.h \
-    grammarlistui.h
+    grammarlistui.h \
+    topwindowsui.h \
+    qheadfile.h
 
 RESOURCES += \
     icon.qrc \

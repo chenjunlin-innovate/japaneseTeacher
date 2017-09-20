@@ -1,22 +1,10 @@
 ﻿#include"mainwindow.h"
-#include <QMouseEvent>
-#include <QGroupBox>
-#include <QButtonGroup>
-#include <QPushButton>
-#include <QString>
-#include <QPainter>
-#include <QLabel>
-#include <QBitmap>
-#include <QFont>
-#include <QRadioButton>
-#include <QWidget>
-#include <QListWidget>
-#include <QComboBox>
-#include <QCheckBox>
-#include <QScrollBar>
-#include <QSplashScreen>
-#include <QApplication>
-#include <QObject>
+#include"qheadfile.h"
+
+const static int pos_min_x = 0;
+const static int pos_max_x = 1050;
+const static int pos_min_y = 0;
+const static int pos_max_y = 75;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -28,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     SetFillet();
     MainManagement=new management;
-    TopGroupBox=new QGroupBox(this);                           SetTopGroupBox();
+    Topwindows =new TopWindowsUI(this);
     FootGroupBox=new QGroupBox(this);                          SetFooterMessage();
     MainUiGroupBox=new QGroupBox(this);                        SetMainGroupBox();
     RightGroupBox=new QGroupBox(this);                         SetRightGroupBox();
@@ -54,6 +42,37 @@ MainWindow::~MainWindow()
 {
     delete MainManagement;
 }
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    mousePosition = event->pos();
+    //只对标题栏范围内的鼠标事件进行处理
+    if (mousePosition.x()<=pos_min_x)
+    return;
+    if ( mousePosition.x()>=pos_max_x)
+    return;
+    if (mousePosition.y()<=pos_min_y )
+    return;
+    if (mousePosition.y()>=pos_max_y)
+    return;
+    isMousePressed = true;
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if ( isMousePressed==true )
+    {
+    QPoint movePot = event->globalPos() - mousePosition;
+    move(movePot);
+    }
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    isMousePressed=false;
+}
+
+
 
 void MainWindow::SetWindowsSize(int x, int y)
 {
@@ -84,55 +103,15 @@ void MainWindow::SetFooterMessage()
     FootLabel->setText("V 1.00 版权所有 水木日语教育科技有限公司");
 }
 
-void MainWindow::SetSettingBar()
-{
-    QGroupBox *SetButtonGroupBox=new QGroupBox(TopGroupBox);
-
-    QPushButton *Button1=new QPushButton(SetButtonGroupBox);
-    QPushButton *Button2=new QPushButton(SetButtonGroupBox);
-    QPushButton *Button3=new QPushButton(SetButtonGroupBox);
-    QPushButton *Button4=new QPushButton(SetButtonGroupBox);
-
-    SetButtonGroupBox->setStyleSheet("border:0px");
-
-    SetButtonGroupBox->setGeometry(TopGroupBox->width()-260,10,250,55);
-
-    Button1->setStyleSheet("background-image:url(:/imagefile/home);");
-    Button2->setStyleSheet("background-image:url(:/imagefile/help);");
-    Button3->setStyleSheet("background-image:url(:/imagefile/set);");
-    Button4->setStyleSheet("background-image:url(:/imagefile/close);");
-
-
-    Button1->setGeometry(0,0,51,51);
-    Button2->setGeometry(65,0,51,51);
-    Button3->setGeometry(130,0,51,51);
-    Button4->setGeometry(195,0,51,51);
-
-    QObject::connect(Button1,&QPushButton::clicked,this,&MainWindow::GoBackToMain);
-
-    QObject::connect(Button4, &QPushButton::clicked, &QApplication::quit);
-}
-
-void MainWindow::SetTopGroupBox()
-{
-    TopGroupBox->setGeometry(5,3,this->width()-10,this->height()*0.11-3);
-
-    QGroupBox *LogoGroupBox=new QGroupBox(TopGroupBox);
-    LogoGroupBox->setGeometry(20,19,150,40);
-    LogoGroupBox->setStyleSheet("background-image:url(:/imagefile/logo);border:0px groove gray;border-radius:0px;padding:0px 0px;");
-    SetSettingBar();
-
-}
-
 void MainWindow::SetMainGroupBox()
 {
-    MainUiGroupBox->setGeometry(5,TopGroupBox->height(),this->width()*0.7,this->height()-TopGroupBox->height()-FootGroupBox->height());
+    MainUiGroupBox->setGeometry(5,Topwindows->height(),this->width()*0.7,this->height()-Topwindows->height()-FootGroupBox->height());
     MainUiGroupBox->setStyleSheet("background-color:#ffffff;border:1px groove gray;border-radius:0px;padding:0px 0px;");
 }
 
 void MainWindow::SetRightGroupBox()
 {
-    RightGroupBox->setGeometry(MainUiGroupBox->width()+5,TopGroupBox->height(),this->width()-MainUiGroupBox->width()-10,this->height()-TopGroupBox->height()-FootGroupBox->height());
+    RightGroupBox->setGeometry(MainUiGroupBox->width()+5,Topwindows->height(),this->width()-MainUiGroupBox->width()-10,this->height()-Topwindows->height()-FootGroupBox->height());
     RightGroupBox->setStyleSheet("background-color:#ffffff;border:1px groove gray;border-radius:0px;padding:0px 0px;");
 
     QGroupBox *RightTopBox=new QGroupBox(RightGroupBox);
@@ -152,6 +131,7 @@ void MainWindow::SetRightGroupBox()
 
 void MainWindow::SetMainConnect()
 {
+    QObject::connect(Topwindows->NavigationButton1,&QPushButton::clicked,this,&MainWindow::GoBackToMain);
     QObject::connect(FunctionSelection->BegainButton,&QPushButton::clicked,this,&MainWindow::GoToWordList);
     QObject::connect(WordList->gotostudy,&QPushButton::clicked,this,&MainWindow::GoToWordStudy);
     QObject::connect(WordList->gototest,&QPushButton::clicked,this,&MainWindow::GoToProblem);
