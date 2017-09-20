@@ -41,6 +41,10 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
     secondButton->setText("例句学习");
     secondButton->setGeometry(this->width()*0.28,this->height()*0.08,100,45);
 
+    gototest= new QPushButton(this);
+    gototest->setText("立即测试");
+    gototest->setGeometry(this->width()*0.20,this->height()*0.83,90,33);
+
     previous= new QPushButton(this);
     previous->setText("上一个");
     previous->setGeometry(this->width()*0.60,this->height()*0.83,90,33);

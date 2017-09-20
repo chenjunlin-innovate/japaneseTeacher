@@ -23,6 +23,8 @@ public:
     QPushButton *previous;
     QPushButton *nextword;
 
+    QPushButton *gototest;
+
     management *MainManagement;
 
     QMediaPlayer *player;

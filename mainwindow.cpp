@@ -6,7 +6,6 @@ const static int pos_max_x = 1050;
 const static int pos_min_y = 0;
 const static int pos_max_y = 75;
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
@@ -135,6 +134,7 @@ void MainWindow::SetMainConnect()
     QObject::connect(FunctionSelection->BegainButton,&QPushButton::clicked,this,&MainWindow::GoToWordList);
     QObject::connect(WordList->gotostudy,&QPushButton::clicked,this,&MainWindow::GoToWordStudy);
     QObject::connect(WordList->gototest,&QPushButton::clicked,this,&MainWindow::GoToProblem);
+    QObject::connect(WordStudy->gototest,&QPushButton::clicked,this,&MainWindow::GoToProblem);
 }
 
 void MainWindow::AllWindowsHide()
