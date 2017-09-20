@@ -1,13 +1,14 @@
 ﻿#ifndef MANAGEMENT_H
 #define MANAGEMENT_H
-#include"words.h"
-#include<string>
-#include<QString>
-#include<QFile>
-#include<fstream>
-#include<vector>
-#include<iostream>
-#include<stdlib.h>
+#include "words.h"
+#include <string>
+#include <QString>
+#include <QFile>
+#include <fstream>
+#include <vector>
+#include <iostream>
+#include <stdlib.h>
+#include <sstream>
 
 using namespace std;
 
@@ -19,6 +20,10 @@ private:
     int location;
 public:
     management();
+    void clear(){
+        Words.clear();
+    }
+
     void get_num(string s){
      ClassNumber=s;
     }
@@ -27,12 +32,10 @@ public:
     }
     void fomer(){
         if(location>0)location--;
-
     }
     int getlocation(){
         return location;
     }
-
     int get_sise(){
         return Words.size();
     }
@@ -50,10 +53,14 @@ public:
     }
 
     void readfile(){
-        ifstream module;
         string vaule;
+        stringstream module;
 
-        module.open("D://01//word.csv");
+        QFile modulex(":/1/word");
+        modulex.open(QFile::ReadOnly);
+
+        module<<modulex.readAll().toStdString();
+
         while(module.peek()!=EOF){
             getline(module,vaule,',');
             string a=vaule;

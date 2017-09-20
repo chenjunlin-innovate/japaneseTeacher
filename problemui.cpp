@@ -16,8 +16,8 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
     ProblemOption3->setText("法语");
     ProblemOption4->setText("俄语");
 
-    ProblemDescribe->move(this->width()*0.1,this->height()*0.08);
-    ProblemDescribe->setStyleSheet("font-size:22px;");
+    ProblemDescribe->move(this->width()*0.15,this->height()*0.18);
+    ProblemDescribe->setStyleSheet("font-size:35px;");
     ProblemOption1->setGeometry(this->width()*0.06,this->height()*0.3,560,60);
     ProblemOption2->setGeometry(this->width()*0.06,this->height()*0.45,560,60);
     ProblemOption3->setGeometry(this->width()*0.06,this->height()*0.6,560,60);

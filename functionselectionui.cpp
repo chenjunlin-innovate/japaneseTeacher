@@ -14,6 +14,8 @@ FunctionSelectionUI::FunctionSelectionUI(QWidget *parent) : QWidget(parent)
     GrammarButton=new QRadioButton(ChoiceGroupBox);
     TextButton=new QRadioButton(ChoiceGroupBox);
 
+    WordButton->setChecked(true);
+
     setallstyle();
 }
 

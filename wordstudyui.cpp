@@ -17,17 +17,20 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
 
     japanese=new QLabel(this);
     japanese->setText("日本語");
-    japanese->move(this->width()*0.19,this->height()*0.260);
+    //japanese->move(this->width()*0.19,this->height()*0.260);
+    japanese->setGeometry(this->width()*0.19,this->height()*0.260,500,56);
     japanese->setStyleSheet("font-size:55px;font-family:Microsoft YaHei;");
 
     read=new QLabel(this);
     read->setText("[ にほん ご ]");
-    read->move(this->width()*0.19,this->height()*0.4);
+    //read->move(this->width()*0.19,this->height()*0.4);
+    read->setGeometry(this->width()*0.19,this->height()*0.4,500,28);
     read->setStyleSheet("font-size:27px;font-family:Microsoft YaHei;");
 
     chinese=new QLabel(this);
     chinese->setText("【名词】中文翻译");
-    chinese->move(this->width()*0.19,this->height()*0.5);
+    //chinese->move(this->width()*0.19,this->height()*0.5);
+    chinese->setGeometry(this->width()*0.19,this->height()*0.5,500,26);
     chinese->setStyleSheet("font-size:25px;font-family:Microsoft YaHei;");
 
     firstButton=new QPushButton(this);
@@ -47,24 +50,30 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
     nextword->setGeometry(this->width()*0.78,this->height()*0.83,90,33);
     QObject::connect(previous,&QPushButton::clicked,this,&WordStudyUI::former_change);
     QObject::connect(nextword,&QPushButton::clicked,this,&WordStudyUI::next_change);
+
+    player=new QMediaPlayer(this);
+
+    QObject::connect(Radio,&QPushButton::clicked,player,&QMediaPlayer::play);
 }
 void WordStudyUI::former_change(){
     MainManagement->fomer();
     int flag=MainManagement->getlocation();
-    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
-    japanese->setText(xx);
-    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
-    read->setText(xx);
-    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
-    chinese->setText(xx);
+    QString Url=("qrc:///1/1w");
+    Url+=QString::number(flag+1);
+    player->setMedia(QUrl(Url));
+    japanese->setText(QString::fromStdString(MainManagement->get_i_Jan(flag).data()));
+    read->setText(QString::fromStdString(MainManagement->get_pronun(flag).data()));
+    chinese->setText(QString::fromStdString(("[ "+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
+    player->play();
 }
 void WordStudyUI::next_change(){
     MainManagement->next();
     int flag=MainManagement->getlocation();
-    QString xx=QString::fromLocal8Bit(MainManagement->get_i_Jan(flag).data());
-    japanese->setText(xx);
-    xx=QString::fromLocal8Bit(MainManagement->get_pronun(flag).data());
-    read->setText(xx);
-    xx=QString::fromLocal8Bit(("["+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data());
-    chinese->setText(xx);
+    QString Url=("qrc:///1/1w");
+    Url+=QString::number(flag+1);
+    player->setMedia(QUrl(Url));
+    japanese->setText(QString::fromStdString(MainManagement->get_i_Jan(flag).data()));
+    read->setText(QString::fromStdString(MainManagement->get_pronun(flag).data()));
+    chinese->setText(QString::fromStdString(("[ "+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
+    player->play();
 }

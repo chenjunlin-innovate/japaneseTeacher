@@ -4,9 +4,11 @@
 #include <QGroupBox>
 #include <QPushButton>
 #include <QMainWindow>
+#include "qheadfile.h"
 #include "wordlistui.h"
 #include "management.h"
 #include "wordstudyui.h"
+#include "topwindowsui.h"
 #include "problemui.h"
 #include "functionselectionui.h"
 
@@ -24,18 +26,22 @@ private:
     WordStudyUI *WordStudy;
     ProblemUI *Problem;
     FunctionSelectionUI *FunctionSelection;
+    TopWindowsUI *Topwindows;
 
-    QGroupBox *TopGroupBox;
     QGroupBox *FootGroupBox;
     QGroupBox *RightGroupBox;
     management *MainManagement;
 
+    QPoint mousePosition;
+    bool isMousePressed;
+protected:
+    void mousePressEvent(QMouseEvent*event);
+    void mouseMoveEvent(QMouseEvent*event) ;
+    void mouseReleaseEvent(QMouseEvent*event);
 private:
     void SetWindowsSize(int x,int y);
     void SetFillet();
     void SetFooterMessage();
-    void SetSettingBar();
-    void SetTopGroupBox();
     void SetMainGroupBox();
     void SetRightGroupBox();
     //设定初始窗口大小
@@ -46,6 +52,7 @@ public slots:
     void GoBackToMain();
     void GoToWordList();
     void GoToWordStudy();
+    void GoToProblem();
 };
 
 #endif // MAINWINDOW_H
