@@ -50,18 +50,30 @@ WordStudyUI::WordStudyUI(QWidget *parent) : QWidget(parent)
     nextword->setGeometry(this->width()*0.78,this->height()*0.83,90,33);
     QObject::connect(previous,&QPushButton::clicked,this,&WordStudyUI::former_change);
     QObject::connect(nextword,&QPushButton::clicked,this,&WordStudyUI::next_change);
+
+    player=new QMediaPlayer(this);
+
+    QObject::connect(Radio,&QPushButton::clicked,player,&QMediaPlayer::play);
 }
 void WordStudyUI::former_change(){
     MainManagement->fomer();
     int flag=MainManagement->getlocation();
+    QString Url=("qrc:///1/1w");
+    Url+=QString::number(flag+1);
+    player->setMedia(QUrl(Url));
     japanese->setText(QString::fromStdString(MainManagement->get_i_Jan(flag).data()));
     read->setText(QString::fromStdString(MainManagement->get_pronun(flag).data()));
     chinese->setText(QString::fromStdString(("[ "+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
+    player->play();
 }
 void WordStudyUI::next_change(){
     MainManagement->next();
     int flag=MainManagement->getlocation();
+    QString Url=("qrc:///1/1w");
+    Url+=QString::number(flag+1);
+    player->setMedia(QUrl(Url));
     japanese->setText(QString::fromStdString(MainManagement->get_i_Jan(flag).data()));
     read->setText(QString::fromStdString(MainManagement->get_pronun(flag).data()));
     chinese->setText(QString::fromStdString(("[ "+MainManagement->get_i_propety(flag)+"]"+MainManagement->get_i_ch(flag)).data()));
+    player->play();
 }

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QMediaPlayer>
+#include <QString>
 #include "management.h"
 
 class WordStudyUI : public QWidget
@@ -22,6 +24,8 @@ public:
     QPushButton *nextword;
 
     management *MainManagement;
+
+    QMediaPlayer *player;
 
 signals:
 

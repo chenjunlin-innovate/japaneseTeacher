@@ -141,7 +141,7 @@ void MainWindow::SetRightGroupBox()
     FootTopBox->setGeometry(0,RightTopBox->height(),RightGroupBox->width(),RightGroupBox->height()-RightTopBox->height());
 
     QPushButton *ProblemButton=new QPushButton(RightTopBox);
-    ProblemButton->setText( "我的错题本");
+    ProblemButton->setText( "我的词本");
     ProblemButton->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
                                  "QPushButton{background:#62B1E1;}"
                                  "QPushButton:hover{background:#42A1E1;}"
