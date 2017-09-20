@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->SetWindowsSize(1050,700);
     this->setWindowFlags(Qt::FramelessWindowHint);
     this->setStyleSheet("QWidget{background-color:#4da6de;border:2px groove gray;border-radius:10px;padding:2px 4px;}");
-
+    isMousePressed=false;
     SetFillet();
     MainManagement=new management;
     Topwindows =new TopWindowsUI(this);
@@ -95,7 +95,7 @@ void MainWindow::SetFillet()
 void MainWindow::SetFooterMessage()
 {
     FootGroupBox->setGeometry(5,this->height()*0.94,this->width()-6,this->height()*0.06);
-
+    FootGroupBox->setStyleSheet("border:0px groove gray;");
     QLabel *FootLabel=new QLabel(FootGroupBox);
     FootLabel->setStyleSheet("color:#ffffff;border:0px groove gray;");
     FootLabel->move(20,17);
