@@ -51,6 +51,24 @@ public:
     string get_pronun(int i){
         return Words[i].get_pronunciation();
     }
+    string get_JA_ans(string s){
+        for(int i=0;i<Words.size();i++){
+            if(Words[i].get_chinese()==s){
+                return Words[i].get_japanese();
+                break;
+            }
+        }
+        return "false";
+    }
+    string get_ch_ans(string s){
+        for(int i=0;i<Words.size();i++){
+            if(Words[i].get_japanese()==s){
+                return Words[i].get_chinese();
+                break;
+            }
+        }
+        return "false";
+    }
 
     void readfile(){
         string vaule;
