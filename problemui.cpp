@@ -43,6 +43,7 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
     Tips->setText("回答正确，请继续下一题吧~");
     Tips->setStyleSheet("font-size:15px");
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     Radio->setGeometry(this->width()*0.75,this->height()*0.12,35,35);
     Radio->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-size:15px;border-radius:17px;}"
@@ -51,6 +52,8 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
                            "QPushButton:pressed{background:#2281B1;}"
                            "QLabel{border:0px groove gray;}");
 =======
+=======
+>>>>>>> b77383a8eb84605867fb05756508ec0ec1e631d5
     QObject::connect(NextTest,&QPushButton::clicked,this,&ProblemUI::next_test);
 
 }
@@ -107,5 +110,8 @@ void ProblemUI::updata_tips(string s){
     else Tips->setText("回答错误，要加油哦~");
 
 
+<<<<<<< HEAD
+>>>>>>> b77383a8eb84605867fb05756508ec0ec1e631d5
+=======
 >>>>>>> b77383a8eb84605867fb05756508ec0ec1e631d5
 }
