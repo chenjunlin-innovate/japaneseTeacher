@@ -44,59 +44,10 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
     WordList=new QListWidget(this);
     WordList->setGeometry(15,100,this->width()-30,this->height()-200);
     WordList->setStyleSheet("QListWidget{border:1px groove gray;}");
-    WordList->verticalScrollBar()->setStyleSheet("QScrollBar:vertical"
-                                                 "{"
-                                                 "width:12px;"
-                                                 "background:rgba(0,0,"
-                                                 "0,0%);"
-                                                 "margin:0px,0px,0px,0px;"
-                                                 "padding-top:0px;"
-                                                 "padding-bottom:0px;"
-                                                 "}"
-                                                 "QScrollBar::handle:vertical"
-                                                 "{"
-                                                 "width:12px;"
-                                                 "background:rgba(0,0,0,25%);"
-                                                 " border-radius:4px;"
-                                                 "min-height:20;"
-                                                 "}"
-                                                 "QScrollBar::handle:vertical:hover"
-                                                 "{"
-                                                 "width:12px;"
-                                                 "background:rgba(0,0,0,50%);"
-                                                 " border-radius:4px;"
-                                                 "min-height:20;"
-                                                 "}"
-                                                 "QScrollBar::add-line:vertical"
-                                                 "{"
-                                                 "height:9px;width:12px;"
-                                                 "border-image:url(:/images/a/3.png);"
-                                                 "subcontrol-position:bottom;"
-                                                 "}"
-                                                 "QScrollBar::sub-line:vertical"
-                                                 "{"
-                                                 "height:9px;width:12px;"
-                                                 "border-image:url(:/images/a/1.png);"
-                                                 "subcontrol-position:top;"
-                                                 "}"
-                                                 "QScrollBar::add-line:vertical:hover"
-                                                 "{"
-                                                 "height:9px;width:12px;"
-                                                 "border-image:url(:/images/a/4.png);"
-                                                 "subcontrol-position:bottom;"
-                                                 "}"
-                                                 "QScrollBar::sub-line:vertical:hover"
-                                                 "{"
-                                                 "height:9px;width:12px;"
-                                                 "border-image:url(:/images/a/2.png);"
-                                                 "subcontrol-position:top;"
-                                                 "}"
-                                                 "QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical"
-                                                 "{"
-                                                 "background:rgba(0,0,0,10%);"
-                                                 "border-radius:4px;"
-                                                 "}"
-                                                 );
+
+    QFile StyleSheet(":/qss/QScrollBar");
+    StyleSheet.open(QFile::ReadOnly);
+    WordList->verticalScrollBar()->setStyleSheet(StyleSheet.readAll());
 
 }
 
