@@ -50,4 +50,5 @@ HEADERS  += mainwindow.h \
 RESOURCES += \
     icon.qrc \
     csv.qrc \
-    video.qrc
+    video.qrc \
+    qss.qrc
