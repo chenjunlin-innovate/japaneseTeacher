@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/qss">
-        <file alias="QScrollBar">qss/QScrollBar.qss</file>
+        <file alias="QScrollBar">qss/QScrollBar.css</file>
     </qresource>
 </RCC>
