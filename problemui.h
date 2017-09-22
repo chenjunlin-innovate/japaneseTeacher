@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include "management.h"
+#include"make_problems.h"
 #include<cstdlib>
 #include<ctime>
 
@@ -26,16 +27,14 @@ public:
     QPushButton *NextTest;
 
     management *MainManagement;
+    make_problems *pro;
 
 signals:
 
 public slots:
     void next_test();
-    string op1();
-    string op2();
-    string op3();
-    string op4();
-    void updata_tips(string s);
+
+
 
 
 };
