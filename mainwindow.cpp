@@ -152,6 +152,8 @@ void MainWindow::GoBackToMain()
     WordList->WordList->clear();
     WordStudy->hide();
     Problem->hide();
+    Problem->pro->make_empty();
+
 }
 
 void MainWindow::GoToWordList()
