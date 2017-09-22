@@ -13,7 +13,6 @@ class make_problems
 public:
     make_problems();
     void init(){
-
         int maxn=MainManagement->get_sise();
 
         for(int i=0;i<maxn;i++){
@@ -42,17 +41,17 @@ public:
             }
         for(int i=0;i<maxn;i++){
            string po=MainManagement->get_i_ch(i);
-           string ans=MainManagement->get_i_Jan(i);
+           string ans=MainManagement->get_pronun(i);
            int a=rand()%maxn;
            while(a==i)a=rand()%maxn;
-           string ans1=MainManagement->get_i_Jan(a);
+           string ans1=MainManagement->get_pronun(a);
            int b=rand()%maxn;
            while(b==i||b==a)b=rand()%maxn;
-           string ans2=MainManagement->get_i_Jan(b);
+           string ans2=MainManagement->get_pronun(b);
 
            int c=rand()%maxn;
            while(c==b||c==i||c==a)c=rand()%maxn;
-           string ans3=MainManagement->get_i_Jan(c);
+           string ans3=MainManagement->get_pronun(c);
            problem p(po,ans,ans1,ans2,ans3);
            ve.push_back(p);
         }
@@ -75,7 +74,7 @@ public:
     }
 
     void nextpos(){
-        if(pos<ve.size())pos++;
+        if(pos<ve.size()-1)pos++;
     }
 
     int getpos(){

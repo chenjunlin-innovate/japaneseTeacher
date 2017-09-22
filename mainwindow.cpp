@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     isMousePressed=false;
     SetFillet();
     MainManagement=new management;
+
     Topwindows =new TopWindowsUI(this);
     FootGroupBox=new QGroupBox(this);                          SetFooterMessage();
     MainUiGroupBox=new QGroupBox(this);                        SetMainGroupBox();
@@ -175,6 +176,7 @@ void MainWindow::GoToWordStudy()
 
 void MainWindow::GoToProblem()
 {
+    Problem->pro->init();
     FunctionSelection->hide();
     WordList->hide();
     WordStudy->hide();

@@ -16,7 +16,8 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
     ProblemOption3= new QPushButton(this);
     ProblemOption4= new QPushButton(this);
     NextTest=new QPushButton(this);
-
+    MainManagement =new management;
+    pro=new make_problems;
     Radio=new QPushButton(this);
 
     ProblemDescribe->setText("日本語");
@@ -54,8 +55,9 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
 }
 void ProblemUI::next_test(){
 
-    pro->nextpos();
+
     int pos=pro->getpos();
+    pro->nextpos();
     QString issue=QString::fromStdString(pro->get_problem(pos).get_issue());
     ProblemDescribe->setText(issue);
     QString ans[4];
