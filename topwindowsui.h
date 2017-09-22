@@ -8,6 +8,9 @@ class TopWindowsUI : public QWidget
     Q_OBJECT
 public:
     QPushButton *NavigationButton1;
+    QPushButton *NavigationButton2;
+    QPushButton *NavigationButton3;
+    QPushButton *NavigationButton4;
 
     explicit TopWindowsUI(QWidget *parent = nullptr);
 

@@ -10,12 +10,11 @@ TopWindowsUI::TopWindowsUI(QWidget *parent) : QWidget(parent)
     QGroupBox *SetButtonGroupBox=new QGroupBox(this);
 
     NavigationButton1=new QPushButton(SetButtonGroupBox);
-    QPushButton *NavigationButton2=new QPushButton(SetButtonGroupBox);
-    QPushButton *NavigationButton3=new QPushButton(SetButtonGroupBox);
-    QPushButton *NavigationButton4=new QPushButton(SetButtonGroupBox);
+    NavigationButton2=new QPushButton(SetButtonGroupBox);
+    NavigationButton3=new QPushButton(SetButtonGroupBox);
+    NavigationButton4=new QPushButton(SetButtonGroupBox);
 
     SetButtonGroupBox->setStyleSheet("border:0px");
-
     SetButtonGroupBox->setGeometry(this->width()-260,10,250,55);
 
     NavigationButton1->setStyleSheet("background-image:url(:/imagefile/home);");
