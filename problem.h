@@ -8,11 +8,18 @@ class problem
 {
     string issue;
     string ans,ans1,ans2,ans3;
+    string tips;
     
 public:
     problem();
     problem(string a,string b,string c,string d,string e):issue(a),ans(b),ans1(c),ans2(d),ans3(e){
         
+    }
+    problem(string a,string t,string b,string c,string d,string e):issue(a),tips(t),ans(b),ans1(c),ans2(d),ans3(e){
+
+    }
+    string get_tips(){
+        return tips;
     }
 
     string get_issue(){
@@ -32,6 +39,7 @@ public:
     }
     problem operator =(const problem &p){
         issue=p.issue;
+        tips=p.tips;
         ans=p.ans;
         ans1=p.ans1;
         ans2=p.ans2;

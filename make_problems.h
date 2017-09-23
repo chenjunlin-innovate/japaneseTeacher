@@ -13,6 +13,7 @@ class make_problems
 public:
     make_problems();
     void init(){
+        string t="0";
         srand((unsigned)time(0));
         int maxn=MainManagement->get_sise();
 
@@ -29,7 +30,7 @@ public:
            int c=rand()%maxn;
            while(c==b||c==i||c==a)c=rand()%maxn;
            string ans3=MainManagement->get_i_ch(c);
-           problem p(po,ans,ans1,ans2,ans3);
+           problem p(po,t,ans,ans1,ans2,ans3);
            ve.push_back(p);
         }
             for(int i=0;i<maxn/4;i++){
@@ -53,7 +54,7 @@ public:
            int c=rand()%maxn;
            while(c==b||c==i||c==a)c=rand()%maxn;
            string ans3=MainManagement->get_pronun(c);
-           problem p(po,ans,ans1,ans2,ans3);
+           problem p(po,t,ans,ans1,ans2,ans3);
            ve.push_back(p);
         }
         for(int i=0;i<maxn/4;i++){
@@ -63,7 +64,32 @@ public:
             ve[tmp1]=ve[tmp2];
             ve[tmp2]=temp;
         }
+        string vaule;
+        stringstream module;
 
+        QFile modulex(":/1/problem");
+        modulex.open(QFile::ReadOnly);
+
+        module<<modulex.readAll().toStdString();
+
+        while(module.peek()!=EOF){
+            getline(module,vaule,',');
+            string a=vaule;
+
+            getline(module,vaule,',');
+            t=vaule;
+
+            getline(module,vaule,',');
+            string b=vaule;
+            getline(module,vaule,',');
+            string c=vaule;
+            getline(module,vaule,',');
+            string d=vaule;
+            getline(module,vaule,'\n');
+            string e=vaule;
+            problem p(a,t,b,c,d,e);
+            ve.push_back(p);
+        }
 
 
     }

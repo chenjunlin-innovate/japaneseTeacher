@@ -56,3 +56,5 @@ RESOURCES += \
     csv.qrc \
     video.qrc \
     qss.qrc
+
+DISTFILES +=
