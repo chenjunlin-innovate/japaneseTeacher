@@ -13,7 +13,7 @@ class make_problems
 public:
     make_problems();
     void init(){
-        string t="0";
+        string t="  ";
         srand((unsigned)time(0));
         int maxn=MainManagement->get_sise();
 
@@ -90,7 +90,14 @@ public:
             problem p(a,t,b,c,d,e);
             ve.push_back(p);
         }
-
+        int cc=ve.size()-maxn*2;
+        for(int i=0;i<cc/4;i++){
+            int tmp1=(rand()%cc)+maxn*2;
+            int tmp2=(rand()%cc)+maxn*2;
+            problem temp=ve[tmp1];
+            ve[tmp1]=ve[tmp2];
+            ve[tmp2]=temp;
+        }
 
     }
     int getsize(){
