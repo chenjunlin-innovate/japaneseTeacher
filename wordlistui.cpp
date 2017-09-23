@@ -10,7 +10,7 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
     gotostudy=new QPushButton(this);
     gototest=new QPushButton(this);
 
-    gotostudy->setStyleSheet("background:#42A1E1");
+    gotostudy->setStyleSheet("background:#42A1E1;");
     gototest->setStyleSheet("background:#42A1E1");
 
     tipBox= new QGroupBox(this);
@@ -20,11 +20,11 @@ WordListUI::WordListUI(QWidget *parent) : QWidget(parent)
     gotostudy->setText("进入学习");
     gototest->setText("马上测试");
 
-    gotostudy->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
+    gotostudy->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-size:13px;font-family:MingLiu;}"
                              "QPushButton{background:#62B1E1;}"
                              "QPushButton:hover{background:#42A1E1;}"
                              "QPushButton:pressed{background:#2281B1;}");
-    gototest->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-weight:bold;}"
+    gototest->setStyleSheet("QPushButton{border:1px groove gray;border-radius:5px;padding:0px 0px;color:#ffffff;font-size:13px;font-family:MingLiu;}"
                             "QPushButton{background:#62B1E1;}"
                             "QPushButton:hover{background:#42A1E1;}"
                             "QPushButton:pressed{background:#2281B1;}");
@@ -64,20 +64,16 @@ void WordListUI::AddWord()
         QLabel *japanese= new QLabel(itemwidget);
         QLabel *chinese= new QLabel(itemwidget);
 
-        QString xx=QString::fromStdString(MainManagement->get_i_Jan(i));
-
-        //xx+=QString::number(i);
-
         QMediaPlayer *player=new QMediaPlayer(itemwidget);
 
         QString Url=("qrc:///1/1w");
         Url+=QString::number(i+1);
         player->setMedia(QUrl(Url));
 
-        japanese->setText(xx);
-
-        xx=QString::fromStdString("[ "+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i));
-        chinese->setText(xx);
+        japanese->setText(QString::fromStdString
+                           (MainManagement->get_i_Jan(i)));
+        chinese->setText(QString::fromStdString
+                           ("["+MainManagement->get_i_propety(i)+"]"+MainManagement->get_i_ch(i)));
         item->setSizeHint(QSize(WordList->width()-25, 38));
         button->setGeometry(65,9,20,20);
         checkBox->setGeometry(35,9,20,20);
