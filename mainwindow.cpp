@@ -146,13 +146,14 @@ void MainWindow::AllWindowsHide()
 }
 
 void MainWindow::GoBackToMain()
-{
+{   Problem->newstart();
     FunctionSelection->show();
     WordList->hide();
     WordList->WordList->clear();
     WordStudy->hide();
     Problem->hide();
     Problem->pro->make_empty();
+
 
 }
 

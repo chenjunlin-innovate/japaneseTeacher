@@ -13,6 +13,7 @@ class make_problems
 public:
     make_problems();
     void init(){
+        srand((unsigned)time(0));
         int maxn=MainManagement->get_sise();
 
         for(int i=0;i<maxn;i++){
@@ -56,12 +57,11 @@ public:
            ve.push_back(p);
         }
         for(int i=0;i<maxn/4;i++){
-            int tmp1=rand()%((maxn*2-maxn)+maxn);
-            int tmp2=rand()%((maxn*2-maxn)+maxn);
+            int tmp1=(rand()%(maxn*2-maxn))+maxn;
+            int tmp2=(rand()%(maxn*2-maxn))+maxn;
             problem temp=ve[tmp1];
             ve[tmp1]=ve[tmp2];
             ve[tmp2]=temp;
-
         }
 
 

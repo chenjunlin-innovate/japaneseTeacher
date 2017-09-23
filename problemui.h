@@ -33,7 +33,7 @@ signals:
 
 public slots:
     void next_test();
-
+    void newstart();
 
 
 

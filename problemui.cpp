@@ -26,7 +26,7 @@ ProblemUI::ProblemUI(QWidget *parent) : QWidget(parent)
     ProblemOption3->setText("法语");
     ProblemOption4->setText("俄语");
 
-    ProblemDescribe->move(this->width()*0.17,this->height()*0.1);
+    ProblemDescribe->setGeometry(this->width()*0.17,this->height()*0.1,500,38);
     ProblemDescribe->setStyleSheet("font-size:35px;font-family:Microsoft YaHei;");
     ProblemOption1->setGeometry(this->width()*0.06,this->height()*0.3,560,60);
     ProblemOption2->setGeometry(this->width()*0.06,this->height()*0.43,560,60);
@@ -66,7 +66,7 @@ void ProblemUI::next_test(){
     ans[1]=QString::fromStdString(pro->get_problem(pos).get_ans1());
     ans[2]=QString::fromStdString(pro->get_problem(pos).get_ans2());
     ans[3]=QString::fromStdString(pro->get_problem(pos).get_ans3());
-    srand((unsigned)(time));
+    srand((unsigned)time(0));
     int rato=rand()%4;
     QString temp=ans[0];
     ans[0]=ans[rato];
@@ -76,5 +76,26 @@ void ProblemUI::next_test(){
     ProblemOption3->setText(ans[2]);
     ProblemOption4->setText(ans[3]);
 }
+void ProblemUI::newstart(){
+    int flag=MainManagement->get_sise();
+    srand((unsigned)time(0));
+    int pos=rand()%flag;
+    QString issue=QString::fromStdString(pro->get_problem(pos).get_issue());
+    ProblemDescribe->setText(issue);
+    QString ans[4];
 
+    ans[0]=QString::fromStdString(pro->get_problem(pos).get_ans());
+    ans[1]=QString::fromStdString(pro->get_problem(pos).get_ans1());
+    ans[2]=QString::fromStdString(pro->get_problem(pos).get_ans2());
+    ans[3]=QString::fromStdString(pro->get_problem(pos).get_ans3());
+    int rato=rand()%4;
+    QString temp=ans[0];
+    ans[0]=ans[rato];
+    ans[rato]=temp;
+    ProblemOption1->setText(ans[0]);
+    ProblemOption2->setText(ans[1]);
+    ProblemOption3->setText(ans[2]);
+    ProblemOption4->setText(ans[3]);
+
+}
 

@@ -32,6 +32,7 @@ private:
     QGroupBox *RightGroupBox;
     management *MainManagement;
 
+
     QPoint mousePosition;
     bool isMousePressed;
 protected:
