@@ -32,7 +32,6 @@ SOURCES += main.cpp\
     problemui.cpp \
     words.cpp \
     grammarstudyui.cpp \
-    grammarlistui.cpp \
     topwindowsui.cpp \
     problem.cpp \
     make_problems.cpp
@@ -45,7 +44,6 @@ HEADERS  += mainwindow.h \
     problemui.h \
     words.h \
     grammarstudyui.h \
-    grammarlistui.h \
     topwindowsui.h \
     qheadfile.h \
     problem.h \
