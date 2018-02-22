@@ -5,7 +5,7 @@ TopWindowsUI::TopWindowsUI(QWidget *parent) : QWidget(parent)
     this->setGeometry(5,3,parent->width()-10,parent->height()*0.11-3);
     QGroupBox *LogoGroupBox=new QGroupBox(this);
     LogoGroupBox->setGeometry(20,19,150,40);
-    LogoGroupBox->setStyleSheet("background-image:url(:/imagefile/logo);border:0px groove gray;border-radius:0px;padding:0px 0px;");
+    LogoGroupBox->setStyleSheet("border-image:url(:/logo/logo.png);border:0px groove gray;border-radius:0px;padding:0px 0px;");
 
     QGroupBox *SetButtonGroupBox=new QGroupBox(this);
 

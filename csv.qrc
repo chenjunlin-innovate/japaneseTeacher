@@ -3,4 +3,8 @@
         <file alias="word">csv/01/word.csv</file>
         <file alias="problem">csv/01/problem.csv</file>
     </qresource>
+    <qresource prefix="/">
+        <file>X.qml</file>
+        <file>XForm.ui.qml</file>
+    </qresource>
 </RCC>

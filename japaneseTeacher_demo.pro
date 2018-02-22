@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     grammarstudyui.cpp \
     topwindowsui.cpp \
     problem.cpp \
-    make_problems.cpp
+    make_problems.cpp \
+    dialog.cpp
 
 HEADERS  += mainwindow.h \
     management.h \
@@ -47,12 +48,15 @@ HEADERS  += mainwindow.h \
     topwindowsui.h \
     qheadfile.h \
     problem.h \
-    make_problems.h
+    make_problems.h \
+    dialog.h
 
 RESOURCES += \
-    icon.qrc \
     csv.qrc \
     video.qrc \
     qss.qrc
 
 DISTFILES +=
+
+FORMS += \
+    dialog.ui

@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/1">
-        <file alias="1w1">video/01/1W1.mp3</file>
+        <file>video/01/1W1.mp3</file>
         <file alias="1w2">video/01/1W2.mp3</file>
         <file alias="1w3">video/01/1W3.mp3</file>
         <file alias="1w4">video/01/1W4.mp3</file>
@@ -20,5 +20,12 @@
         <file alias="1w18">video/01/1W18.mp3</file>
         <file alias="1w19">video/01/1W19.mp3</file>
         <file alias="1w20">video/01/1W20.mp3</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>logo/close.png</file>
+        <file>logo/help.png</file>
+        <file>logo/home.png</file>
+        <file>logo/logo.png</file>
+        <file>logo/set.png</file>
     </qresource>
 </RCC>
